@@ -3,7 +3,7 @@
 
 ## Description
 
-This is a gamer help forum that allows gamers who are stuck or need help about a game to ask a question, and the gaming community can answer the question. The questions and the replies can be upvoted to show that many people are having the same question, and which answer has been the most helpful.
+This is a gaming help forum that allows gamers who are stuck and need help! The user may ask a question and then the gaming community can answer said question. The questions and the replies can be upvoted to show that many people are having the same issue or have found a certain piece of content helpful.
 
 ## Screenshots
 
@@ -26,7 +26,7 @@ https://github.com/Damon-Hansen
 
 ## How to Contribute
 
-If you would like to contribute to the project then you can email me using my email below.
+If you would like to contribute to the project then you can email me using the address below.
 
 
 ## Questions
