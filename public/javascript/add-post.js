@@ -1,6 +1,6 @@
 async function newFormHandler(event) {
   event.preventDefault();
-  console.log("button.click");
+  // console.log("button.click");
 
   const title = document.querySelector('input[name="post-title"]').value;
   const text = document.querySelector('input[name="post-text"]').value;
@@ -17,7 +17,7 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/");
+    document.location.replace("/make-post");
   } else {
     alert(response.statusText);
   }
@@ -25,4 +25,4 @@ async function newFormHandler(event) {
 
 document
   .querySelector(".post-submit")
-  .addEventListener("click", newFormHandler);
+  .addEventListener("submit", newFormHandler);

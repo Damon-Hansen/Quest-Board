@@ -1,4 +1,4 @@
-<div class="mb-3">
+{{!-- <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label post-title">Post Title</label>
   <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="What's your issue?">
 </div>
@@ -8,6 +8,21 @@
 </div>
   <div class="col-12">
     <button class="btn btn-primary post-submit" type="submit">Submit Post</button>
-  </div>
+  </div> --}}
+
+  <section>
+  <h2>Create New Post</h2>
+  <form class="post-submit">
+    <div>
+      <label for="post-title">Title</label>
+      <input type="text" id="post-title" name="post-title" />
+    </div>
+    <div>
+      <label for="post-text">Question</label>
+      <input id="post-text" name="post-text" />
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
+</section>
 
   <script src="/javascript/add-post.js"></script>
