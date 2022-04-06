@@ -89,12 +89,20 @@ router.get("/post/:id", (req, res) => {
     });
 });
 
+router.get("/sign-up", (req, res) => {
+  res.render("sign-up");
+});
+
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
     return;
   }
   res.render("login");
+});
+
+router.get("/make-post", (req, res) => {
+  res.render("make-post");
 });
 
 module.exports = router;
