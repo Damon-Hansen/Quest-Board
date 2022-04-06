@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id', 'title', 'text', 'created_at']
       },
       {
         model: Comment,
@@ -32,13 +32,7 @@ router.get('/:id', (req, res) => {
           model: Post,
           attributes: ['title']
         }
-      },
-    //   {
-    //     model: Post,
-    //     attributes: ['title'],
-    //     through: Vote,
-    //     as: 'voted_posts'
-    //   }
+      }
     ]
   })
     .then(dbUserData => {
@@ -109,45 +103,6 @@ router.post('/logout', (req, res) => {
   else {
     res.status(404).end();
   }
-});
-
-//Updates user info
-router.put('/:id', (req, res) => {
-  User.update(req.body, {
-    individualHooks: true,
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(dbUserData => {
-      if (!dbUserData) {
-        res.status(404).json({ message: 'No user found with this id' });
-        return;
-      }
-      res.json(dbUserData);
-    })
-    .catch(error => {
-      res.status(500).json(error);
-    });
-});
-
-//Deletes a User
-router.delete('/:id', (req, res) => {
-  User.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-    .then(dbUserData => {
-      if (!dbUserData) {
-        res.status(404).json({ message: 'No user found with this id' });
-        return;
-      }
-      res.json(dbUserData);
-    })
-    .catch(error => {
-      res.status(500).json(error);
-    });
 });
 
 module.exports = router;
