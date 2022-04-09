@@ -1,18 +1,19 @@
-<div>
-    <span class="border border-warning"><ol class="question-list blockquote mx-auto" style="width: 200px;">
-  <li>
-    <article class="question">
-      <div class="title">
-        <a href="{{post_url}}" target="_blank">{{title}}</a>
-        <span>({{post_url}})</span>
-      </div>
-      <div class="meta">
-        {{vote_count}} point(s) by {{user.username}} on
-        {{created_at}}
-        |
-        <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
-      </div>
-    </article>
-  </li>
-</ol></span>
-</div>
+{{> post-info post}}
+
+{{#if loggedIn}}
+<form class="comment-form">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">add comment</button>
+    </div>
+</form>
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="/javascript/add-comment.js"></script>
+{{/if}}

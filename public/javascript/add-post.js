@@ -1,6 +1,5 @@
 async function newFormHandler(event) {
   event.preventDefault();
-  // console.log("button.click");
 
   const title = document.querySelector('input[name="post-title"]').value;
   const text = document.querySelector('input[name="post-text"]').value;
@@ -13,16 +12,14 @@ async function newFormHandler(event) {
     }),
     headers: {
       "Content-Type": "application/json",
-    },
+    }
   });
 
   if (response.ok) {
-    document.location.replace("/make-post");
+    document.location.replace("/");
   } else {
     alert(response.statusText);
   }
 }
 
-document
-  .querySelector(".post-submit")
-  .addEventListener("submit", newFormHandler);
+document.querySelector('.post-submit').addEventListener('submit', newFormHandler);
