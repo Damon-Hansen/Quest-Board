@@ -12,8 +12,12 @@
     <header class="container">
         <h1 class="auto"><mark><em>QUEST BOARD</em></mark></h1>
         <h2><a href="/sign-up">Sign Up Here</a></h2>
+        {{#if loggedIn}}
+         <h2><a href="/make-post">Make a Post</a></h2>
+        <h2><button id="logout" class="btn-no-style">Log Out</button></h2>
+        {{else}}
         <h2><a href="/login">Log In</a></h2>
-        <h2><a href="/make-post">Make a Post</a></h2>
+        {{/if}}
     </header>
     </div>
     <main>
@@ -22,5 +26,9 @@
 <footer>
 
 </footer>
+
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
 </body>
 </html>
