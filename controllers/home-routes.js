@@ -55,7 +55,7 @@ router.get('/post/:id', (req, res) => {
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username', 'email']
       }
     ]
   })

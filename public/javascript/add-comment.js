@@ -5,6 +5,7 @@ async function commentFormHandler(event) {
     const post_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
+    const email = document.querySelector('.user-email').textContent;
 
     if (comment_text) {
         const response = await fetch('/api/comments', {
@@ -22,6 +23,21 @@ async function commentFormHandler(event) {
             document.location.reload();
         } else {
             alert(response.statusText);
+        }
+
+        if (response.ok) {
+            const responseEmail = await fetch('/mail/text-mail', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!responseEmail.ok) {
+                console.log(responseEmail.statusText)
+            }
         }
     }
 }
