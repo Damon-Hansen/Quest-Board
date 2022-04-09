@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
         });
 
         if (response.ok) {
-            document.location.replace('/')
+            window.location.reload();
         } else {
             alert(response.statusText);
         }
