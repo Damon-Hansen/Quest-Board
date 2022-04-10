@@ -5,21 +5,23 @@ async function newFormHandler(event) {
   const text = document.querySelector('input[name="post-text"]').value;
 
   const response = await fetch(`/api/posts`, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify({
       title,
       text,
     }),
     headers: {
-      "Content-Type": "application/json",
-    }
+      'Content-Type': 'application/json',
+    },
   });
 
   if (response.ok) {
-    document.location.replace("/");
+    document.location.replace('/');
   } else {
     alert(response.statusText);
   }
 }
 
-document.querySelector('.post-submit').addEventListener('submit', newFormHandler);
+document
+  .querySelector('.post-submit')
+  .addEventListener('submit', newFormHandler);
