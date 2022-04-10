@@ -1,0 +1,32 @@
+
+
+<form class="signup-form row g-3">
+  <div class="col-md-4">
+    <label for="validationServer01" class="form-label">Username</label>
+    <input type="text" class="form-control is-valid" id="validationServer01" value="Insert a Username here!" required>
+
+  </div>
+  <div class="col-md-4">
+    <label for="validationServer02" class="form-label">Email</label>
+    <input type="text" class="form-control is-valid" id="validationServer02" value="Insert a Email here!" required>
+
+  </div>
+  <div class="col-md-4">
+    <label for="validationServerUsername" class="form-label">Password</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend3">@</span>
+      <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+    </div>
+  </div>
+
+      <div id="invalidCheck3Feedback" class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+
+<script src="/javascript/sign-up.js"></script>
