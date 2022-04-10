@@ -8,9 +8,6 @@ This is a gaming help forum that allows gamers who are stuck and need help! The 
 ## Screenshots
 
 
-## Webpage
-
-
 
 ## Usage
 
