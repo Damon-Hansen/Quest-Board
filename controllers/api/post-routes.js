@@ -4,8 +4,9 @@ const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all user posts
-router.get('/', (req, res) => {
-  Post.findAll({
+router.get('/', async (req, res) => {
+  try {
+  const dbPostData = await Post.findAll({
     attributes: [
       'id',
       'title',
@@ -27,15 +28,16 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(error => {
-      res.status(500).json(error);
-    });
+  res.json(dbPostData);
+} catch (error) {
+  res.status(400).json(error);
+}
 });
 
 //Gets a post by an id
-router.get('/:id', (req, res) => {
-  Post.findOne({
+router.get('/:id', async (req, res) => {
+  try {
+  const dbPostData = await Post.findOne({
     where: {
       id: req.params.id
     },
@@ -60,29 +62,28 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
-      res.json(dbPostData);
-    })
-    .catch(error => {
-      res.status(500).json(error);
-    });
+  if (!dbPostData) {
+    res.status(404).json({ message: 'No post found with this id' });
+    return;
+  }
+  res.json(dbPostData);
+} catch (error) {
+  res.status(400).json(error);
+}
 });
 
 //creates a post
-router.post('/', withAuth, (req, res) => {
-  Post.create({
+router.post('/', withAuth, async (req, res) => {
+  try {
+  const dbPostData = await Post.create({
     title: req.body.title,
     text: req.body.text,
     user_id: req.session.user_id
   })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(error => {
-      res.status(500).json(error);
-    });
+  res.json(dbPostData)
+} catch (error) {
+  res.status(400).json(error);
+}
 });
 
 module.exports = router;
